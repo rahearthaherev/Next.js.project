@@ -58,6 +58,14 @@ export default function SideMenu(props: SideMenuInfo) {
                         <ListItemText primary="StyledComponent" />
                     </ListItemButton>
                 </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton href={"/itembox"} component={Link}>
+                        <ListItemIcon>
+                            <FolderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Recoil" />
+                    </ListItemButton>
+                </ListItem>
             </List>
         </Drawer>
     </>

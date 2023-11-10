@@ -3,7 +3,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Control } from "../Control";
 
 export default function Create() {
     const router = useRouter();

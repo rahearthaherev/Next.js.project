@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Control } from './Control';
-import { AppBar, Box, Container, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Container, Toolbar, Typography } from '@mui/material';
 import SideMenu from '@/component/SideMenu';
 import Link from 'next/link';
+import RecoilProvider from './RecoilProvider';
 
 export const metadata: Metadata = {
   title: 'Hello, WEB',
@@ -21,24 +21,28 @@ export default async function RootLayout({
   return (
     <html>
       <body>
-        <Container maxWidth={false} style={{ marginLeft: '250px', marginTop: '80px' }}>
-          <Box sx={{ flexGrow: 1 }} component='div'>
-            <AppBar position='fixed' sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-            >
-              <Toolbar>
-                <Typography variant="h6" component={Link} color='inherit' href='/'>
-                  WEB
-                </Typography>
-              </Toolbar>
-            </AppBar>
-          </Box>
-          <Box component="main"
-            sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }} >
-            {children}
-          </Box>
-          <SideMenu topics={topics}></SideMenu>
-        </Container>
-      </body>
+        <RecoilProvider>
+          <Container maxWidth={false} style={{
+            marginLeft: '250px', marginTop: '80px', width: `calc(100% - 250px)`
+          }}>
+            <Box sx={{ flexGrow: 1 }} component='div'>
+              <AppBar position='fixed' sx={{ width: `calc(100% - ${drawerWidth} px)`, ml: `${drawerWidth}px` }}
+              >
+                <Toolbar>
+                  <Typography variant="h6" component={Link} color='inherit' href='/'>
+                    WEB
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+            </Box>
+            <Box component="main"
+              sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }} >
+              {children}
+            </Box>
+            <SideMenu topics={topics}></SideMenu>
+          </Container>
+        </RecoilProvider >
+      </body >
     </html >
   )
 }
