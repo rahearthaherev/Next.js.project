@@ -22,22 +22,43 @@ export default function SideMenu(props: SideMenuInfo) {
             <Divider />
             <List>
                 {props.topics.map((topic: TopicInfo) => (
-
                     <ListItem key={topic.id} disablePadding>
-
                         <ListItemButton href={"/read/" + topic.id} component={Link}>
                             <ListItemIcon>
                                 <FolderIcon />
                             </ListItemIcon>
                             <ListItemText primary={topic.title} />
                         </ListItemButton>
-
                     </ListItem>
-
                 ))}
             </List>
             <Divider />
-
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton href={"/other/componentapi"} component={Link}>
+                        <ListItemIcon>
+                            <FolderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="ComponentAPI" />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton href={"/other/reducer"} component={Link}>
+                        <ListItemIcon>
+                            <FolderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="UseReducer" />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton href={"/other/styledcomponent"} component={Link}>
+                        <ListItemIcon>
+                            <FolderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="StyledComponent" />
+                    </ListItemButton>
+                </ListItem>
+            </List>
         </Drawer>
     </>
 }
